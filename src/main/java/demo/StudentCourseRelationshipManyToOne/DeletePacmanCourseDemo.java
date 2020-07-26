@@ -1,16 +1,13 @@
-package demo;
+package demo.StudentCourseRelationshipManyToOne;
 
-import entity.Course;
-import entity.Instructor;
-import entity.InstructorDetail;
-import entity.Review;
+import entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 
 
-public class DeleteCourseAndReviewsDemo {
+public class DeletePacmanCourseDemo {
 
 	public static void main(String[] args) {
 
@@ -21,6 +18,7 @@ public class DeleteCourseAndReviewsDemo {
 								.addAnnotatedClass(InstructorDetail.class)
 								.addAnnotatedClass(Course.class)
 								.addAnnotatedClass(Review.class)
+								.addAnnotatedClass(Student.class)
 								.buildSessionFactory();
 		
 		// create session
@@ -31,20 +29,15 @@ public class DeleteCourseAndReviewsDemo {
 			// start a transaction
 			session.beginTransaction();
 
-			// get the course
-			int theId = 3;
-			Course tempCourse = session.get(Course.class, theId);
-			
-			// print the course
-			System.out.println("Deleting the course ... ");
-			System.out.println(tempCourse);
-			
-			// print the course reviews
-			System.out.println(tempCourse.getReviews());
+			// get the pacman course from db
+			int courseId = 10;
+			Course tempCourse = session.get(Course.class, courseId);
 			
 			// delete the course
-			session.delete(tempCourse);
+			System.out.println("Deleting course: " + tempCourse);
 			
+			session.delete(tempCourse);
+						
 			// commit transaction
 			session.getTransaction().commit();
 			

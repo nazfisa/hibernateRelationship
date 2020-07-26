@@ -1,4 +1,4 @@
-package demo;
+package demo.fatchingtechnicnique;
 
 import entity.Course;
 import entity.Instructor;

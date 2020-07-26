@@ -1,14 +1,12 @@
-package demo;
+package demo.StudentCourseRelationshipManyToOne;
 
-import entity.Course;
-import entity.Instructor;
-import entity.InstructorDetail;
+import entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 
-public class DeleteCourseDemo {
+public class DeleteMaryStudentDemo {
 
 	public static void main(String[] args) {
 
@@ -18,6 +16,8 @@ public class DeleteCourseDemo {
 								.addAnnotatedClass(Instructor.class)
 								.addAnnotatedClass(InstructorDetail.class)
 								.addAnnotatedClass(Course.class)
+								.addAnnotatedClass(Review.class)
+								.addAnnotatedClass(Student.class)
 								.buildSessionFactory();
 		
 		// create session
@@ -27,16 +27,18 @@ public class DeleteCourseDemo {
 			
 			// start a transaction
 			session.beginTransaction();
+				
+			// get the student from database
+			int studentId = 2;
+			Student tempStudent = session.get(Student.class, studentId);
 			
-			// get a course
-			int theId = 1;
-			Course tempCourse = session.get(Course.class, theId);
+			System.out.println("\nLoaded student: " + tempStudent);
+			System.out.println("Courses: " + tempStudent.getCourses());		
+		
+			// delete student
+			System.out.println("\nDeleting student: " + tempStudent);
+			session.delete(tempStudent);
 			
-			// delete course
-			System.out.println("Deleting course: " + tempCourse);
-			
-			session.delete(tempCourse);
-
 			// commit transaction
 			session.getTransaction().commit();
 			

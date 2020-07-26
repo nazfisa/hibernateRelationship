@@ -1,6 +1,5 @@
-package demo;
+package demo.createInstructorandinstructorinfoOneToOne;
 
-import entity.Course;
 import entity.Instructor;
 import entity.InstructorDetail;
 import org.hibernate.Session;
@@ -8,7 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 
-public class CreateInstructorDemo {
+public class CreateDemo {
 
 	public static void main(String[] args) {
 
@@ -17,7 +16,6 @@ public class CreateInstructorDemo {
 								.configure()
 								.addAnnotatedClass(Instructor.class)
 								.addAnnotatedClass(InstructorDetail.class)
-								.addAnnotatedClass(Course.class)
 								.buildSessionFactory();
 		
 		// create session
@@ -25,14 +23,24 @@ public class CreateInstructorDemo {
 		
 		try {			
 			
-			// create the objects			
-			Instructor tempInstructor = 
-					new Instructor("Susan", "Public", "susan.public@luv2code.com");
-			
+			// create the objects
+
+			Instructor tempInstructor =
+					new Instructor("Chad", "Darby", "darby@luv2code.com");
+
 			InstructorDetail tempInstructorDetail =
 					new InstructorDetail(
-							"http://www.youtube.com",
-							"Video Games");		
+							"http://www.luv2code.com/youtube",
+							"Luv 2 code!!!");
+
+			
+//			Instructor tempInstructor =
+//					new Instructor("Madhu", "Patel", "madhu@luv2code.com");
+//
+//			InstructorDetail tempInstructorDetail =
+//					new InstructorDetail(
+//							"http://www.youtube.com",
+//							"Guitar");
 			
 			// associate the objects
 			tempInstructor.setInstructorDetail(tempInstructorDetail);
@@ -54,10 +62,6 @@ public class CreateInstructorDemo {
 			System.out.println("Done!");
 		}
 		finally {
-			
-			// add clean up code
-			session.close();
-			
 			factory.close();
 		}
 	}

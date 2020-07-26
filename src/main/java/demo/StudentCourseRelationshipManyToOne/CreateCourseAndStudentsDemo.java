@@ -1,4 +1,4 @@
-package demo;
+package demo.StudentCourseRelationshipManyToOne;
 
 import entity.*;
 import org.hibernate.Session;

@@ -1,14 +1,12 @@
-package demo;
+package demo.StudentCourseRelationshipManyToOne;
 
-
-import entity.Instructor;
-import entity.InstructorDetail;
+import entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 
-public class DeleteDemo {
+public class GetCoursesForMaryDemo {
 
 	public static void main(String[] args) {
 
@@ -17,6 +15,9 @@ public class DeleteDemo {
 								.configure("hibernate.cfg.xml")
 								.addAnnotatedClass(Instructor.class)
 								.addAnnotatedClass(InstructorDetail.class)
+								.addAnnotatedClass(Course.class)
+								.addAnnotatedClass(Review.class)
+								.addAnnotatedClass(Student.class)
 								.buildSessionFactory();
 		
 		// create session
@@ -26,31 +27,24 @@ public class DeleteDemo {
 			
 			// start a transaction
 			session.beginTransaction();
-
-			// get instructor by primary key / id
-			int theId = 1;
-			Instructor tempInstructor = 
-					session.get(Instructor.class, theId);
-			
-			System.out.println("Found instructor: " + tempInstructor);
-			
-			// delete the instructors
-			if (tempInstructor != null) {
-			
-				System.out.println("Deleting: " + tempInstructor);
 				
-				// Note: will ALSO delete associated "details" object
-				// because of CascadeType.ALL
-				//
-				session.delete(tempInstructor);				
-			}
+			// get the student from database
+			int studentId = 2;
+			Student tempStudent = session.get(Student.class, studentId);
 			
+			System.out.println("\nLoaded student: " + tempStudent);
+			System.out.println("Courses: " + tempStudent.getCourses());		
+						
 			// commit transaction
 			session.getTransaction().commit();
 			
 			System.out.println("Done!");
 		}
 		finally {
+			
+			// add clean up code
+			session.close();
+			
 			factory.close();
 		}
 	}

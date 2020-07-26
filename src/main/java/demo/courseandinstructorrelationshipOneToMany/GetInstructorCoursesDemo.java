@@ -1,23 +1,23 @@
-package demo;
+package demo.courseandinstructorrelationshipOneToMany;
 
-import entity.*;
+import entity.Course;
+import entity.Instructor;
+import entity.InstructorDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 
-public class DeleteMaryStudentDemo {
+public class GetInstructorCoursesDemo {
 
 	public static void main(String[] args) {
 
 		// create session factory
 		SessionFactory factory = new Configuration()
-								.configure("hibernate.cfg.xml")
+								.configure()
 								.addAnnotatedClass(Instructor.class)
 								.addAnnotatedClass(InstructorDetail.class)
 								.addAnnotatedClass(Course.class)
-								.addAnnotatedClass(Review.class)
-								.addAnnotatedClass(Student.class)
 								.buildSessionFactory();
 		
 		// create session
@@ -27,17 +27,15 @@ public class DeleteMaryStudentDemo {
 			
 			// start a transaction
 			session.beginTransaction();
-				
-			// get the student from database
-			int studentId = 2;
-			Student tempStudent = session.get(Student.class, studentId);
 			
-			System.out.println("\nLoaded student: " + tempStudent);
-			System.out.println("Courses: " + tempStudent.getCourses());		
-		
-			// delete student
-			System.out.println("\nDeleting student: " + tempStudent);
-			session.delete(tempStudent);
+			// get the instructor from db
+			int theId = 4;
+			Instructor tempInstructor = session.get(Instructor.class, theId);		
+			
+			System.out.println("Instructor: " + tempInstructor);
+			
+			// get courses for the instructor
+			System.out.println("Courses: " + tempInstructor.getCourses());
 			
 			// commit transaction
 			session.getTransaction().commit();

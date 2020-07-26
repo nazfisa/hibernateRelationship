@@ -1,14 +1,15 @@
-package demo;
+package demo.CourseAndReviewRelationship;
 
 import entity.Course;
 import entity.Instructor;
 import entity.InstructorDetail;
+import entity.Review;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 
-public class CreateInstructorCoursesDemo {
+public class CreateCourseAndReviewsDemo {
 
 	public static void main(String[] args) {
 
@@ -18,6 +19,7 @@ public class CreateInstructorCoursesDemo {
 								.addAnnotatedClass(Instructor.class)
 								.addAnnotatedClass(InstructorDetail.class)
 								.addAnnotatedClass(Course.class)
+								.addAnnotatedClass(Review.class)
 								.buildSessionFactory();
 		
 		// create session
@@ -28,22 +30,21 @@ public class CreateInstructorCoursesDemo {
 			// start a transaction
 			session.beginTransaction();
 			
-			// create instructor
-			Instructor tempInstructor = new Instructor("Daffy", "Duck", "daffy.duck@luv2code.com");
 			
-			session.save(tempInstructor);
+			// create a course
+			Course tempCourse = new Course("Pacman - How To Score One Million Points");
 			
-			// create some courses
-			Course tempCourse1 = new Course("Duck training - volume 1");
-			Course tempCourse2 = new Course("Duck training - volume 2");
+			// add some reviews
+			tempCourse.addReview(new Review("Great course ... loved it!"));
+			tempCourse.addReview(new Review("Cool course, job well done"));
+			tempCourse.addReview(new Review("What a dumb course, you are an idiot!"));
+						
+			// save the course ... and leverage the cascade all :-)
+			System.out.println("Saving the course");
+			System.out.println(tempCourse);
+			System.out.println(tempCourse.getReviews());
 			
-			// add courses to instructor
-			tempInstructor.add(tempCourse1);
-			tempInstructor.add(tempCourse2);
-			
-			// save the courses
-			session.save(tempCourse1);
-			session.save(tempCourse2);
+			session.save(tempCourse);
 			
 			// commit transaction
 			session.getTransaction().commit();

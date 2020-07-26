@@ -1,15 +1,14 @@
-package demo;
+package demo.courseandinstructorrelationshipOneToMany;
 
 import entity.Course;
 import entity.Instructor;
 import entity.InstructorDetail;
-import entity.Review;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 
-public class CreateCourseAndReviewsDemo {
+public class DeleteCourseDemo {
 
 	public static void main(String[] args) {
 
@@ -19,7 +18,6 @@ public class CreateCourseAndReviewsDemo {
 								.addAnnotatedClass(Instructor.class)
 								.addAnnotatedClass(InstructorDetail.class)
 								.addAnnotatedClass(Course.class)
-								.addAnnotatedClass(Review.class)
 								.buildSessionFactory();
 		
 		// create session
@@ -30,22 +28,15 @@ public class CreateCourseAndReviewsDemo {
 			// start a transaction
 			session.beginTransaction();
 			
+			// get a course
+			int theId = 1;
+			Course tempCourse = session.get(Course.class, theId);
 			
-			// create a course
-			Course tempCourse = new Course("Pacman - How To Score One Million Points");
+			// delete course
+			System.out.println("Deleting course: " + tempCourse);
 			
-			// add some reviews
-			tempCourse.addReview(new Review("Great course ... loved it!"));
-			tempCourse.addReview(new Review("Cool course, job well done"));
-			tempCourse.addReview(new Review("What a dumb course, you are an idiot!"));
-						
-			// save the course ... and leverage the cascade all :-)
-			System.out.println("Saving the course");
-			System.out.println(tempCourse);
-			System.out.println(tempCourse.getReviews());
-			
-			session.save(tempCourse);
-			
+			session.delete(tempCourse);
+
 			// commit transaction
 			session.getTransaction().commit();
 			

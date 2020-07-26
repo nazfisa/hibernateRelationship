@@ -1,4 +1,4 @@
-package demo;
+package demo.CourseAndReviewRelationship;
 
 import entity.Course;
 import entity.Instructor;
@@ -8,13 +8,13 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 
-public class CreateCoursesDemo {
+public class CreateInstructorCoursesDemo {
 
 	public static void main(String[] args) {
 
 		// create session factory
 		SessionFactory factory = new Configuration()
-								.configure()
+								.configure("hibernate.cfg.xml")
 								.addAnnotatedClass(Instructor.class)
 								.addAnnotatedClass(InstructorDetail.class)
 								.addAnnotatedClass(Course.class)
@@ -28,13 +28,14 @@ public class CreateCoursesDemo {
 			// start a transaction
 			session.beginTransaction();
 			
-			// get the instructor from db
-			int theId = 4;
-			Instructor tempInstructor = session.get(Instructor.class, theId);		
+			// create instructor
+			Instructor tempInstructor = new Instructor("Daffy", "Duck", "daffy.duck@luv2code.com");
+			
+			session.save(tempInstructor);
 			
 			// create some courses
-			Course tempCourse1 = new Course("Air Guitar - The Ultimate Guide");
-			Course tempCourse2 = new Course("The Pinball Masterclass");
+			Course tempCourse1 = new Course("Duck training - volume 1");
+			Course tempCourse2 = new Course("Duck training - volume 2");
 			
 			// add courses to instructor
 			tempInstructor.add(tempCourse1);

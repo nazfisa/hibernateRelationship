@@ -1,4 +1,4 @@
-package demo;
+package demo.createInstructorandinstructorinfoOneToOne;
 
 
 import entity.Instructor;
@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class GetInstructorDetailDemo {
+public class DeleteInstructorDetailDemo {
 
 	public static void main(String[] args) {
 
@@ -27,7 +27,7 @@ public class GetInstructorDetailDemo {
 			session.beginTransaction();
 
 			// get the instructor detail object
-			int theId = 2999;
+			int theId = 4;
 			InstructorDetail tempInstructorDetail = 
 					session.get(InstructorDetail.class, theId);
 			
@@ -37,6 +37,13 @@ public class GetInstructorDetailDemo {
 			// print  the associated instructor
 			System.out.println("the associated instructor: " + 
 								tempInstructorDetail.getInstructor());
+			
+			// now let's delete the instructor detail
+			System.out.println("Deleting tempInstructorDetail: " 
+											+ tempInstructorDetail);
+
+			tempInstructorDetail.getInstructor().setInstructorDetail(null);
+			session.delete(tempInstructorDetail);
 			
 			// commit transaction
 			session.getTransaction().commit();

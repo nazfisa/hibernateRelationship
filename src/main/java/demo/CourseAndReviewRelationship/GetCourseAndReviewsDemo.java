@@ -1,4 +1,4 @@
-package demo;
+package demo.CourseAndReviewRelationship;
 
 import entity.Course;
 import entity.Instructor;

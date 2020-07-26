@@ -2,17 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08c6b8a5-6373-4bb7-ac3d-1d5aef64048e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/demo/AddCoursesForMaryDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/demo/CreateCourseAndStudentsDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/demo/DeletePacmanCourseDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/demo/GetCoursesForMaryDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/demo/DeleteCourseAndReviewsDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/DeleteCourseAndReviewsDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/demo/DeleteCourseAndReviewsDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/DeleteCourseAndReviewsDemo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/demo/DeleteSingleComment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/Course.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/Course.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/CreateCoursesDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/courseandinstructorrelationshipOneToMany/CreateCoursesDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/CreateDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/createInstructorandinstructorinfoOneToOne/CreateDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/CreateInstructorDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/createInstructorandinstructorinfoOneToOne/CreateInstructorDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/DeleteCourseDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/courseandinstructorrelationshipOneToMany/DeleteCourseDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/DeleteDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/createInstructorandinstructorinfoOneToOne/DeleteDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/DeleteInstructorDetailDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/createInstructorandinstructorinfoOneToOne/DeleteInstructorDetailDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/EagerLazyDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/fatchingtechnicnique/EagerLazyDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/FetchJoinDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/fatchingtechnicnique/FetchJoinDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/GetInstructorCoursesDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/courseandinstructorrelationshipOneToMany/GetInstructorCoursesDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/demo/GetInstructorDetailDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/demo/createInstructorandinstructorinfoOneToOne/GetInstructorDetailDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/CreateDemo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/CreateInstructorDemo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/DeleteDemo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/DeleteInstructorDetailDemo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/GetCoursesForMaryDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/demo/GetCoursesForMaryDemo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/demo/GetInstructorDetailDemo.class" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,13 +79,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.GetCoursesForMaryDemo">
+  <component name="RunManager" selected="Application.CreateDemo">
     <configuration name="AddCoursesForMaryDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="demo.AddCoursesForMaryDemo" />
+      <option name="MAIN_CLASS_NAME" value="demo.StudentCourseRelationshipManyToOne.AddCoursesForMaryDemo" />
       <module name="oneToOneHibernate" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="demo.*" />
+          <option name="PATTERN" value="demo.createInstructorandinstructorinfoOneToOne.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -88,11 +94,24 @@
       </method>
     </configuration>
     <configuration name="CreateCourseAndStudentsDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="demo.CreateCourseAndStudentsDemo" />
+      <option name="MAIN_CLASS_NAME" value="demo.StudentCourseRelationshipManyToOne.CreateCourseAndStudentsDemo" />
       <module name="oneToOneHibernate" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="demo.*" />
+          <option name="PATTERN" value="demo.createInstructorandinstructorinfoOneToOne.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreateDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="demo.createInstructorandinstructorinfoOneToOne.CreateDemo" />
+      <module name="oneToOneHibernate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="demo.createInstructorandinstructorinfoOneToOne.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -101,24 +120,11 @@
       </method>
     </configuration>
     <configuration name="DeleteCourseAndReviewsDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="demo.DeleteCourseAndReviewsDemo" />
+      <option name="MAIN_CLASS_NAME" value="demo.CourseAndReviewRelationship.DeleteCourseAndReviewsDemo" />
       <module name="oneToOneHibernate" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="demo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DeleteSingleComment" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="demo.DeleteSingleComment" />
-      <module name="oneToOneHibernate" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="demo.*" />
+          <option name="PATTERN" value="demo.createInstructorandinstructorinfoOneToOne.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -127,11 +133,11 @@
       </method>
     </configuration>
     <configuration name="GetCoursesForMaryDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="demo.GetCoursesForMaryDemo" />
+      <option name="MAIN_CLASS_NAME" value="demo.StudentCourseRelationshipManyToOne.GetCoursesForMaryDemo" />
       <module name="oneToOneHibernate" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="demo.*" />
+          <option name="PATTERN" value="demo.createInstructorandinstructorinfoOneToOne.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -141,11 +147,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CreateDemo" />
         <item itemvalue="Application.GetCoursesForMaryDemo" />
         <item itemvalue="Application.AddCoursesForMaryDemo" />
         <item itemvalue="Application.CreateCourseAndStudentsDemo" />
         <item itemvalue="Application.DeleteCourseAndReviewsDemo" />
-        <item itemvalue="Application.DeleteSingleComment" />
       </list>
     </recent_temporary>
   </component>
@@ -164,7 +170,7 @@
       <workItem from="1595654972118" duration="2708000" />
       <workItem from="1595664354933" duration="2385000" />
       <workItem from="1595684301405" duration="5547000" />
-      <workItem from="1595733747161" duration="2547000" />
+      <workItem from="1595733747161" duration="3810000" />
     </task>
     <servers />
   </component>

@@ -1,14 +1,13 @@
-package demo;
+package demo.createInstructorandinstructorinfoOneToOne;
 
-import entity.Course;
+
 import entity.Instructor;
 import entity.InstructorDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-
-public class GetInstructorCoursesDemo {
+public class GetInstructorDetailDemo {
 
 	public static void main(String[] args) {
 
@@ -17,7 +16,6 @@ public class GetInstructorCoursesDemo {
 								.configure()
 								.addAnnotatedClass(Instructor.class)
 								.addAnnotatedClass(InstructorDetail.class)
-								.addAnnotatedClass(Course.class)
 								.buildSessionFactory();
 		
 		// create session
@@ -27,24 +25,29 @@ public class GetInstructorCoursesDemo {
 			
 			// start a transaction
 			session.beginTransaction();
+
+			// get the instructor detail object
+			int theId = 2999;
+			InstructorDetail tempInstructorDetail = 
+					session.get(InstructorDetail.class, theId);
 			
-			// get the instructor from db
-			int theId = 4;
-			Instructor tempInstructor = session.get(Instructor.class, theId);		
-			
-			System.out.println("Instructor: " + tempInstructor);
-			
-			// get courses for the instructor
-			System.out.println("Courses: " + tempInstructor.getCourses());
+			// print the instructor detail
+			System.out.println("tempInstructorDetail: " + tempInstructorDetail);
+						
+			// print  the associated instructor
+			System.out.println("the associated instructor: " + 
+								tempInstructorDetail.getInstructor());
 			
 			// commit transaction
 			session.getTransaction().commit();
 			
 			System.out.println("Done!");
 		}
+		catch (Exception exc) {
+			exc.printStackTrace();
+		}
 		finally {
-			
-			// add clean up code
+			// handle connection leak issue
 			session.close();
 			
 			factory.close();
